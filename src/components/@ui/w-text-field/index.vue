@@ -1,9 +1,9 @@
 <template>
-  <div :class="[$style.wrapper, focus && $style.wrapperFocus]" @click="onFocus">
+  <label :class="[$style.wrapper, focus && $style.wrapperFocus]">
     <w-icon v-if="icon" :class="$style.icon" :icon="icon"/>
     <input ref="inputRef" v-model="proxy" :placeholder="placeholder" @focus="onFocus" @blur="removeFocus"/>
-    <w-icon v-show="proxy" icon="cross" sm @click="$emit('update:modelValue', '')"/>
-  </div>
+    <w-icon v-show="showCross" icon="cross" sm @click="$emit('update:modelValue', '')"/>
+  </label>
 </template>
 <script>
 import { computed, ref } from "vue"
@@ -27,6 +27,7 @@ export default {
         emit('update:modelValue', val)
       }
     })
+    const showCross = computed(() => !!proxy.value)
 
     const onFocus = () => {
       focus.value = true
@@ -38,6 +39,7 @@ export default {
 
     return {
       proxy,
+      showCross,
       inputRef,
       focus,
       onFocus,
@@ -60,15 +62,18 @@ export default {
   font-size:  1.6rem;
   line-height: 1.23625;
   color: #606074;
-  border: solid 1px rgba(196, 196, 205, 0.4);
+  //border: solid 1px rgba(196, 196, 205, 0.4);
+  box-shadow: 0 0 0 1px rgba(196, 196, 205, 0.4);
+  transition: box-shadow 0.2s ease;
   background-color: #FEFEFF;
-  border-radius: 37px;
+  border-radius: 10rem;
   &.wrapperFocus {
-    outline: solid 2px #FF93CD;
+    //outline: solid 2px #FF93CD;
+    box-shadow: 0 0 0 2px #FF93CD;
   }
   &:not(&.wrapperFocus) {
     &:hover {
-      border: solid 1px  #FF93CD;
+      box-shadow: 0 0 0 1px #FF93CD;
     }
   }
   .icon {

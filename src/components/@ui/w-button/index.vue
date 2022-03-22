@@ -17,7 +17,7 @@ export default {
     padding: 0.9rem 15rem;
     background-color: #FEFEFF;
     border: solid 1px rgba(196, 196, 205, 0.4);
-    border-radius: 5px;
+    border-radius: 0.5rem;
     outline: none;
     cursor: pointer;
     font-size:  1.6rem;

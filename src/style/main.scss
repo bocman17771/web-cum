@@ -12,14 +12,15 @@ html, #app {
 }
 
 html {
-  font-size:  0.6944444444vw;
+  //font-size:  0.6944444444vw;
+  font-size: 0.9765625vw; // ${10 / {ширина макета = 1024} * 100}vw
   font-family: 'Montserrat-Regular', sans-serif;
   background: #F5F5FB;
   color: $white;
   //font-size:  1.6rem;
   //line-height: 1.23625;
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1024px) {
     font-size: 10px;
   }
 
