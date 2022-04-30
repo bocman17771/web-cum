@@ -1,27 +1,21 @@
 <template>
-  <div :class="[$style.icon, sm && $style.sm]" v-html="proxy"/>
+  <div :class="[$style.icon, sm && $style.sm]" v-html="proxyIcon"/>
 </template>
-<script>
-import {watch, ref} from 'vue'
 
-export default {
-  name: 'w-icon',
-  props: {
-    icon: String,
-    sm: Boolean
-  },
-  setup(props) {
-    const proxy = ref()
-    watch(props.icon, async () => {
-      const res = await import(`../../../assets/icons/${props.icon}.svg?raw`)
-      proxy.value = res.default
-    }, {immediate: true})
+<script lang="ts">export default {name: 'w-icon'}</script>
+<script lang="ts" setup>
+import { computed } from 'vue'
+import Icons from './icons'
 
-    return {
-      proxy
-    }
-  }
+interface IProps {
+  icon: string
+  sm?: boolean
 }
+
+const props = defineProps<IProps>()
+
+const proxyIcon =  computed(() => Icons[props.icon])
+
 </script>
 <style lang="scss" module>
 .icon {

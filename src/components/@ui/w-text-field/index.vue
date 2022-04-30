@@ -1,54 +1,44 @@
 <template>
   <label :class="[$style.wrapper, focus && $style.wrapperFocus]">
     <w-icon v-if="icon" :class="$style.icon" :icon="icon"/>
-    <input ref="inputRef" v-model="proxy" :placeholder="placeholder" @focus="onFocus" @blur="removeFocus"/>
+    <input v-model="proxy" :placeholder="placeholder" @focus="onFocus" @blur="removeFocus"/>
     <w-icon v-show="showCross" icon="cross" sm @click="$emit('update:modelValue', '')"/>
   </label>
 </template>
-<script>
+<script lang="ts">export default {name: 'w-text-field'}</script>
+<script lang="ts" setup>
 import { computed, ref } from "vue"
-
-export default {
-  name: 'w-icons',
-  props: {
-    modelValue: Number || String,
-    placeholder: Number || String,
-    icon: String
-  },
-  setup(props, ctx) {
-    const {emit} = ctx
-    const inputRef = ref(null)
-    const focus = ref(false)
-    const proxy = computed({
-      get() {
-        return props.modelValue
-      },
-      set(val) {
-        emit('update:modelValue', val)
-      }
-    })
-    const showCross = computed(() => !!proxy.value)
-
-    const onFocus = () => {
-      focus.value = true
-      inputRef.value.focus()
-    }
-    const removeFocus = () => {
-      focus.value = false
-    }
-
-    return {
-      proxy,
-      showCross,
-      inputRef,
-      focus,
-      onFocus,
-      removeFocus
-    }
-  }
-
+interface IProps {
+  modelValue?: string,
+  placeholder?: string,
+  icon?: string
+}
+type Emit = {
+  (e: 'update:modelValue', val: boolean | undefined): void
 }
 
+const props = defineProps<IProps>()
+const emit = defineEmits<Emit>()
+
+const focus = ref(false)
+
+const proxy = computed({
+  get() {
+    return props.modelValue
+  },
+  set(val) {
+    emit('update:modelValue', val)
+  }
+})
+const showCross = computed(() => !!proxy.value)
+
+const onFocus = () => {
+  focus.value = true
+  // inputRef.value.focus()
+}
+const removeFocus = () => {
+  focus.value = false
+}
 </script>
 <style lang="scss" module>
 .wrapper {
