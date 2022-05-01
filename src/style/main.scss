@@ -13,8 +13,8 @@ html, #app {
 
 html {
   //font-size:  0.6944444444vw;
-  font-size: 0.9765625vw; // ${10 / {ширина макета = 1024} * 100}vw
-  font-family: 'Montserrat-Regular', sans-serif;
+  font-size: calc((10 / 1024) * 100vw);
+  font-family: 'AvertaCY-Regular', sans-serif;
   background: #F5F5FB;
   color: $white;
   //font-size:  1.6rem;
@@ -42,8 +42,8 @@ html {
 //}
 
 body {
-  font-size: 1.6rem;
-  line-height: 1.1666666667;
+  //font-size: 1.6rem;
+  @include p;
   font-family: 'Montserrat-Regular', sans-serif;
   //height: 100%;
   color: $blackDefault;

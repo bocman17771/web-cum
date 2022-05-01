@@ -17,29 +17,29 @@
       <w-icon icon="find"></w-icon>
     </div>
 
-<!--    <div :class="$style.row">-->
-<!--      <h2>button</h2>-->
-<!--      <h3 style="color: red">-->
-<!--        тут должны быть другие батоны-->
-<!--      </h3>-->
-<!--      <w-button @click="btnClick">кнопка</w-button>-->
-<!--      <w-button @click="btnClick" redLight>кнопка</w-button>-->
-<!--    </div>-->
-
     <div :class="$style.row">
-      <h2>tabs</h2>
+      <h2>button</h2>
       <h3 style="color: red">
-        это радиобаттоны + тут должна быть анимация бегунка
+        тут должны быть другие батоны
       </h3>
-      <w-tabs :items="[{title: '123'}, {title: '456'}, {title: '789'}]"></w-tabs>
+      <w-button @click="btnClick">кнопка</w-button>
+      <w-button @click="btnClick" redLight>кнопка</w-button>
     </div>
+
+<!--    <div :class="$style.row">-->
+<!--      <h2>tabs</h2>-->
+<!--      <h3 style="color: red">-->
+<!--        это радиобаттоны + тут должна быть анимация бегунка-->
+<!--      </h3>-->
+<!--      <w-tabs :items="[{title: '123'}, {title: '456'}, {title: '789'}]"></w-tabs>-->
+<!--    </div>-->
 
     <div :class="$style.row">
       <h2>chip</h2>
       <h3 style="color: red">
         чип не того размера + он должен быть по ширине под контент
       </h3>
-      <w-chip>123321</w-chip>
+      <w-chip sm>123321</w-chip>
     </div>
 
 <!--    <div :class="$style.row">-->
@@ -50,7 +50,7 @@
 </template>
 <script lang="ts">export default { name: 'storyBook' }</script>
 <script lang="ts" setup>
-import {ref} from "vue"
+import { ref } from "vue"
 const valField = ref('text')
 const btnClick = () => {console.log(true)}
 </script>

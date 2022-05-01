@@ -21,20 +21,26 @@ $tabletWidth: 900px;
 $mobileWidth: 649px;
 
 @mixin h1 {
-  font-size: 3.2rem;
-  line-height: 1.1875;
-  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1.227272727272727;
+  font-weight: 700;
 }
 
 @mixin h2 {
-  font-size: 2.1rem;
-  line-height: 1.1904761905;
-  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.236;
+  font-weight: 700;
+}
+
+@mixin h3 {
+  font-size: 1.8rem;
+  line-height: 1.222222222222222;
+  font-weight: 700;
 }
 
 @mixin p {
   font-size: 1.6rem;
-  line-height: 1.1875;
+  line-height: 1.23625;
 }
 
 @mixin p-lg {
@@ -43,10 +49,14 @@ $mobileWidth: 649px;
 }
 
 @mixin p-sm {
-  font-size: 1.4rem;
-  line-height: 1.2142857143;
+  font-size: 1.5rem;
+  line-height: 1.466666666666667;
 }
 
+@mixin p-xs {
+  font-size: 1.4rem;
+  line-height: 1.571428571428571;
+}
 
 $br: 1.5rem;
 
