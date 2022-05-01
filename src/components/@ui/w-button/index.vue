@@ -1,48 +1,49 @@
 <template>
-  <button :class="[$style.button, redLight && $style.redLight, notBorder && $style.notBorder]" v-on="$event">
+  <button
+    :class="[
+      $style.button,
+      props.blue && $style.blue
+    ]"
+    @click="$emit('click')"
+  >
     <slot/>
   </button>
 </template>
-<script>
-export default {
-  name: 'w-button',
-  props: {
-    redLight: Boolean,
-    notBorder: Boolean
-  }
+<script lang="ts"> export default { name: 'w-button' }</script>
+<script lang="ts" setup>
+import {defineEmits} from "vue";
+interface IProps {
+  blue?: boolean
 }
+const props = defineProps<IProps>()
+
+interface IEmit {
+  (e: 'click', val: boolean): void
+}
+defineEmits<IEmit>()
+
+
 </script>
 <style lang="scss" module>
-  .button {
-    padding: 0.9rem 15rem;
-    background-color: #FEFEFF;
-    border: solid 1px rgba(196, 196, 205, 0.4);
-    border-radius: 0.5rem;
-    outline: none;
-    cursor: pointer;
-    font-size:  1.6rem;
-    line-height: 1.23625;
-    width: 100%;
+.button {
+  padding: 1rem 1.8rem;
+  background: rgba($pinkBlack, .2);
+  border: none;
+  border-radius: $br3;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  transition: background $transition ease;
+  @include p;
+  &:hover {
+    background: rgba($pinkBlack, $opacity);
+  }
+  &.blue {
+    background: linear-gradient(86.42deg, #B4DBFF 0%, #BEF3FF 100%);
     &:hover {
-      border: solid 1px #FF93CD;
-    }
-    &:active {
-      opacity: 0.9;
+      background: linear-gradient(268.28deg, #A6EFFF 0%, #9ED1FF 100%);
+      opacity: 1;
     }
   }
-  .button {
-    &.redLight {
-      border: solid 1px #FFC5E4;
-      background-color: #FFC5E4;
-      //&:hover {
-      //  border: none;
-      //}
-    }
-  }
-  .button {
-    &.notBorder {
-      border: none;
-    }
-  }
-
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.icon, sm && $style.sm]" v-html="proxyIcon"/>
+  <span :class="[$style.icon, props.sm && $style.sm]" v-html="proxyIcon"/>
 </template>
 
 <script lang="ts">export default {name: 'w-icon'}</script>
@@ -12,6 +12,7 @@ interface IProps {
   sm?: boolean
 }
 
+
 const props = defineProps<IProps>()
 
 const proxyIcon =  computed(() => Icons[props.icon])
@@ -19,12 +20,12 @@ const proxyIcon =  computed(() => Icons[props.icon])
 </script>
 <style lang="scss" module>
 .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.4rem;
-  &.sm {
-    width: 3rem;
+  & > svg {
+    width: 1.4rem;
+  }
+  &.sm > svg {
+    width: 1rem;
+    height: 1rem;
   }
 }
 </style>

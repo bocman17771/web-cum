@@ -12,40 +12,26 @@ html, #app {
 }
 
 html {
-  //font-size:  0.6944444444vw;
   font-size: calc((10 / 1024) * 100vw);
   font-family: 'AvertaCY-Regular', sans-serif;
-  background: #F5F5FB;
-  color: $white;
-  //font-size:  1.6rem;
-  //line-height: 1.23625;
 
   @media (min-width: 1024px) {
     font-size: 10px;
   }
-
   @media (max-width: $tabletWidth) {
     font-size: 1.302083333vw;
   }
-
   @media (max-width: $mobileWidth) {
     font-size: 2.6666666667vw;
   }
-
   //@media (max-width: $mobileWidth) and (orientation: landscape) {
   //  font-size: 1.302083333vw !important;
   //}
 }
 
-//html {
-//  height: 100%;
-//}
-
 body {
-  //font-size: 1.6rem;
+  font-family: 'AvertaCY-Regular', sans-serif;
   @include p;
-  font-family: 'Montserrat-Regular', sans-serif;
-  //height: 100%;
   color: $blackDefault;
   width: 100%;
 
@@ -60,12 +46,14 @@ h1 {
   @include h1;
   margin: 0;
 }
-
 h2 {
   @include h2;
   margin: 0;
 }
-
+h3 {
+  @include h3;
+  margin: 0;
+}
 p {
   @include p;
   margin: 0;

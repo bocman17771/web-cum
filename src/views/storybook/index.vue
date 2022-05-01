@@ -19,26 +19,25 @@
 
     <div :class="$style.row">
       <h2>button</h2>
-      <h3 style="color: red">
-        тут должны быть другие батоны
-      </h3>
       <w-button @click="btnClick">кнопка</w-button>
-      <w-button @click="btnClick" redLight>кнопка</w-button>
+      <w-button @click="btnClick" blue>кнопка</w-button>
     </div>
 
-<!--    <div :class="$style.row">-->
-<!--      <h2>tabs</h2>-->
-<!--      <h3 style="color: red">-->
-<!--        это радиобаттоны + тут должна быть анимация бегунка-->
-<!--      </h3>-->
-<!--      <w-tabs :items="[{title: '123'}, {title: '456'}, {title: '789'}]"></w-tabs>-->
-<!--    </div>-->
+    <div :class="$style.row">
+      <h2>button block</h2>
+      <w-button-block @click="btnClick">кнопка</w-button-block>
+    </div>
+
+    <div :class="$style.row">
+      <h2>tabs</h2>
+      <h3 style="color: red">
+        + тут должна быть анимация бегунка
+      </h3>
+      <w-tabs :items="[{title: '123'}, {title: '456'}, {title: '789'}]"></w-tabs>
+    </div>
 
     <div :class="$style.row">
       <h2>chip</h2>
-      <h3 style="color: red">
-        чип не того размера + он должен быть по ширине под контент
-      </h3>
       <w-chip sm>123321</w-chip>
     </div>
 
@@ -52,7 +51,7 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 const valField = ref('text')
-const btnClick = () => {console.log(true)}
+const btnClick = () => {console.log(1)}
 </script>
 <style lang="scss" module>
 .wrapper {

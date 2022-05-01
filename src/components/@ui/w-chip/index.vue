@@ -11,14 +11,11 @@ export default {
 </script>
 <style lang="scss" module>
   .chip {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    //padding: 0.4rem 1rem;
-    height: 3rem;
-    font-size: 1.6rem;
-    background-color: #FFBEE1;
-    border-radius: 6px;
+    display: inline-flex;
+    padding: 0.6rem 1rem;
+    background-color: $pinkLight;
+    border-radius: $br;
+    @include p;
   }
   .icon {
     margin-left: 1.58rem;
