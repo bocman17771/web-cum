@@ -36,6 +36,9 @@
       <w-tabs :items="[{title: '123'}, {title: '456'}, {title: '789'}]"></w-tabs>
     </div>
 
+    {{valField}}
+    {{valField2}}
+
     <div :class="$style.row">
       <h2>chip</h2>
       <w-chip sm>123321</w-chip>
@@ -49,9 +52,41 @@
 </template>
 <script lang="ts">export default { name: 'storyBook' }</script>
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref, onBeforeUpdate, onUpdated, onRenderTracked, onRenderTriggered } from "vue"
 const valField = ref('text')
-const btnClick = () => {console.log(1)}
+const valField2 = ref('text2')
+
+const btnClick = () => {
+  console.log(1)
+  valField.value = 'wehrewdsr'
+}
+const arr = ref<any[]>([false,1,0,1,2,0,1,3,"a"])
+
+// arr.value.sort((a,b):void => {
+//   console.log(a, b, a-b, 'sort')
+// })
+
+console.log(arr.value.sort((a,b) => {
+  if (a > b) return -1
+}))
+
+console.log(arr.value, 'arrsss')
+
+onBeforeUpdate(() => {
+  console.log(valField.value)
+})
+onUpdated(() => {
+  console.log(valField.value)
+})
+
+onRenderTracked(({ key, target, type }) => {
+  console.log({ key, target, type })
+})
+
+onRenderTriggered(({ key, target, type }) => {
+  console.log({ key, target, type })
+})
+
 </script>
 <style lang="scss" module>
 .wrapper {
