@@ -48,7 +48,7 @@ const getPage = computed({
      border: 1px solid rgba(196, 196, 205, 0.4);
      border-radius: $br3;
      padding-top: 0.4rem;
-     padding-bottom: 0.4rem;
+     padding-bottom: 0.5rem;
      & > * + * {
        margin-left: 0.5rem;
      }
