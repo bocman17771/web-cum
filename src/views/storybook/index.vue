@@ -36,18 +36,32 @@
       <w-tabs :items="[{title: '123'}, {title: '456'}, {title: '789'}]"></w-tabs>
     </div>
 
-    {{valField}}
-    {{valField2}}
-
     <div :class="$style.row">
       <h2>chip</h2>
       <w-chip sm>123321</w-chip>
     </div>
 
-<!--    <div :class="$style.row">-->
-<!--      <h2>menu</h2>-->
-<!--      <w-menu></w-menu>-->
-<!--    </div>-->
+    <div :class="$style.row">
+      <h2>menu</h2>
+      <w-menu v-model="activeMenu">
+        menu
+      </w-menu>
+    </div>
+
+    <div :class="$style.row">
+      <h2>select</h2>
+      <w-select v-model="selectVal" :items="[{ title: '1' },{ title: '2' }]"/>
+    </div>
+    <div :class="$style.row">
+      <h2>paginate-panel</h2>
+      <w-paginate-panel v-model="paginateVal" :pageCount="20"/>
+    </div>
+
+    <div :class="$style.row">
+      <h2>paginate-panel</h2>
+      <w-checkbox v-model="check">{{check}}</w-checkbox>
+    </div>
+
   </div>
 </template>
 <script lang="ts">export default { name: 'storyBook' }</script>
@@ -55,11 +69,14 @@
 import { ref, onBeforeUpdate, onUpdated, onRenderTracked, onRenderTriggered } from "vue"
 const valField = ref('text')
 const valField2 = ref('text2')
-
+const activeMenu = ref(false)
+const selectVal = ref('')
 const btnClick = () => {
   console.log(1)
   valField.value = 'wehrewdsr'
 }
+const check = ref(false)
+const paginateVal = ref(1)
 const arr = ref<any[]>([false,1,0,1,2,0,1,3,"a"])
 
 // arr.value.sort((a,b):void => {

@@ -11,7 +11,8 @@
     "@vueform/slider": "^2.0.9",
     "pinia": "^2.0.11",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vuejs-paginate-next": "^1.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.2",
