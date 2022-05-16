@@ -33,7 +33,6 @@ const emit = defineEmits<IEmit>()
 const functionName = () => {
   console.log(true)
 }
-console.log(Paginate)
 const getPage = computed({
   get: () => props.modelValue,
   set: val => {
