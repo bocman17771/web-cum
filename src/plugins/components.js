@@ -9,6 +9,8 @@ import wMenu from '@/components/@ui/w-menu/index.vue'
 import wSelect from '@/components/@ui/w-select/index.vue'
 import wPaginatePanel from '@/components/@ui/w-paginate-panel/index.vue'
 import wCheckbox from '@/components/@ui/w-checkbox/index.vue'
+import wLike from '@/components/@ui/w-like/index.vue'
+import wDot from '@/components/@ui/w-dot/index.vue'
 
 
 const components = {
@@ -24,6 +26,8 @@ const components = {
         app.component('w-select', wSelect)
         app.component('w-paginate-panel', wPaginatePanel)
         app.component('w-checkbox', wCheckbox)
+        app.component('w-like', wLike)
+        app.component('w-dot', wDot)
     },
 }
 

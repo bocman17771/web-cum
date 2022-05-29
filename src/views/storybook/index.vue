@@ -15,6 +15,13 @@
     <div :class="$style.row">
       <h2>icon</h2>
       <w-icon icon="find"></w-icon>
+      <w-icon md icon="like"></w-icon>
+      <w-icon md icon="likeFilled"></w-icon>
+      <w-icon icon="crown"></w-icon>
+      <w-icon icon="medal"></w-icon>
+      <w-icon icon="female"></w-icon>
+      <w-icon icon="maleGender"></w-icon>
+      <w-icon icon="femaleMaleGender"></w-icon>
     </div>
 
     <div :class="$style.row">
@@ -62,6 +69,17 @@
       <w-checkbox v-model="check">{{check}}</w-checkbox>
     </div>
 
+    <div :class="$style.row">
+      <h2>like</h2>
+      <w-like v-model="like"></w-like>
+      {{like}}
+    </div>
+
+    <div :class="$style.row">
+      <h2>dots</h2>
+      <w-dot color="gray" xs></w-dot>
+    </div>
+
   </div>
 </template>
 <script lang="ts">export default { name: 'storyBook' }</script>
@@ -76,6 +94,7 @@ const btnClick = () => {
 }
 const check = ref(false)
 const paginateVal = ref(1)
+const like = ref(false)
 
 </script>
 <style lang="scss" module>
